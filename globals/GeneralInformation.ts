@@ -16,7 +16,7 @@ const GeneralInformation: GlobalConfig = {
       type: "text",
       admin: {
         description:
-          "Frase curta que define o posicionamento da marca e seu diferencial",
+          "Frase curta que define o posicionamento da marca e seu diferencial. Ficará disponível na tela inicial.",
       },
     },
     {
