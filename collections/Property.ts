@@ -70,8 +70,8 @@ export const Property: CollectionConfig = {
       type: "select",
       options: [
         { value: "toSell", label: "Vender" },
-        { value: "toHire", label: "Alugar" },
-        { value: "both", label: "Ambos" },
+        { value: "toRent", label: "Alugar" },
+        { value: "both", label: "Vender ou Alugar" },
       ],
       defaultValue: "toSell",
       required: true,
@@ -90,14 +90,14 @@ export const Property: CollectionConfig = {
       required: true,
     },
     {
-      name: "hirePrice",
+      name: "rentPrice",
       label: "Preço de Aluguel (BRL)",
       type: "number",
       min: 0,
       defaultValue: 0,
       admin: {
         condition: (data) => {
-          return data.purpose === "toHire" || data.purpose === "both";
+          return data.purpose === "toRent" || data.purpose === "both";
         },
       },
       required: true,
@@ -111,7 +111,24 @@ export const Property: CollectionConfig = {
           name: "propertyType",
           label: "Tipo de Propriedade",
           type: "select",
-          options: ["Casa", "Apartamento", "Bangalo"],
+          options: [
+            { value: "casa", label: "Casa" },
+            { value: "apartamento", label: "Apartamento" },
+            { value: "chale", label: "Chalé" },
+            { value: "cobertura", label: "Cobertura" },
+            { value: "sobrado", label: "Sobrado" },
+            { value: "estudio", label: "Estúdio" },
+            { value: "loft", label: "Loft" },
+            { value: "kitnet", label: "Kitnet" },
+            { value: "flat", label: "Flat" },
+            { value: "penthouse", label: "Penthouse" },
+            { value: "bangalo", label: "Bangalô" },
+            { value: "sitio", label: "Sítio" },
+            { value: "fazenda", label: "Fazenda" },
+            { value: "chacara", label: "Chácara" },
+            { value: "casaDePraia", label: "Casa de Praia" },
+            { value: "casaDeCampo", label: "Casa de Campo" },
+          ],
           required: true,
         },
         {
@@ -167,10 +184,37 @@ export const Property: CollectionConfig = {
     },
 
     {
-      name: "image",
-      label: "Imagens da Galeria",
+      name: "cover",
+      label: "Imagem da Capa",
       type: "upload",
       relationTo: "media",
+      admin: {
+        description: "Uma imagem de boa qualidade que representa o imóvel",
+      },
+      required: true,
+    },
+    {
+      name: "gallery",
+      labels: {
+        singular: "Imagem da galeria",
+        plural: "Imagens da galeria",
+      },
+      type: "array",
+      minRows: 2,
+      maxRows: 10,
+      fields: [
+        {
+          name: "galleryImage",
+          label: "Imagem da Galeria",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+        },
+      ],
+      admin: {
+        description:
+          "Utilize fotos apresentáveis que ficarão visíveis em um carrossel de imagens",
+      },
     },
 
     {
@@ -182,25 +226,38 @@ export const Property: CollectionConfig = {
           name: "title",
           label: "Título do Navegador",
           type: "text",
+          admin: {
+            description:
+              "Conteúdo que ficará visivel na aba do navegador. Se não definido, será usado o título do imóvel",
+          },
         },
         {
           name: "description",
           label: "Descrição da Página",
           type: "textarea",
+          admin: {
+            description:
+              "Descrição de até 80 caracteres sobre a página. Importante para otimização de buscadores de sites (SEO)",
+          },
         },
         {
           name: "keywords",
           label: "Palavras Chaves",
           type: "text",
+          admin: {
+            description:
+              "Algumas palavras chaves da página. Separe por vírgula. Quanto menos genéricas, melhor.",
+          },
         },
       ],
     },
     {
       name: "slug",
-      label: "slug",
+      label: "slug (gerado automaticamente)",
       type: "text",
       admin: {
         position: "sidebar",
+        readOnly: true,
       },
       hooks: {
         beforeValidate: [formatSlug("title")],
