@@ -1,0 +1,73 @@
+@use "./mixins.scss" as mixins;
+
+.coverSpace {
+  position: relative;
+  width: 100vw;
+  min-height: 50vw;
+
+  background-image: url("../public/HomePageCover.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .shade {
+    background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
+    height: 3rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .searchBox {
+    @include mixins.boxstyle;
+    flex-wrap: wrap;
+    width: 90vw;
+
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 50%);
+
+    .formColumn {
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+
+      label {
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .formInput {
+        @include mixins.inputstyle;
+      }
+      .priceInput {
+        width: 4rem;
+      }
+    }
+    .formButton {
+      @include mixins.inputstyle;
+      background-color: var(--color-purple);
+      color: white;
+      display: flex;
+      min-width: 6rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}

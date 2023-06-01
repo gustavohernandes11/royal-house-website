@@ -1,0 +1,47 @@
+html,
+body {
+  font-family: system-ui, Segoe UI, Helvetica Neue, Arial;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: var(--color-dark-gray);
+}
+
+:root {
+  --max-width-s: 640px;
+  --max-width-m: 1024px;
+  --max-width-l: 1440px;
+
+  --color-purple: #534e8d;
+  --color-green: #026706;
+  --color-light-blue: #286c7b;
+}
+
+html,
+body,
+button,
+textarea,
+input {
+  @media (max-width: 769px) {
+    font-size: 93.75%;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 87.5%;
+  }
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}

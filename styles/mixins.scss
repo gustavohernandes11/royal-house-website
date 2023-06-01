@@ -1,0 +1,10 @@
+@mixin boxstyle {
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 5px rgba(8, 8, 8, 0.089);
+  border: 1px solid rgb(197, 197, 197);
+}
+@mixin inputstyle {
+  border-radius: 0.5rem;
+  border: 1px solid rgb(197, 197, 197);
+  padding: 0.5rem;
+}
