@@ -1,3 +1,4 @@
+var path = require("path");
 require("dotenv").config();
 const { sizes } = require("./blocks/Image/sizes.json");
 
