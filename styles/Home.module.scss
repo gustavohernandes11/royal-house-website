@@ -1,8 +1,9 @@
 @use "./mixins.scss" as mixins;
 
-.coverSpace {
+.coverSection {
   position: relative;
   width: 100vw;
+  max-width: 100vw;
   min-height: 50vw;
 
   background-image: url("../public/HomePageCover.png");
@@ -22,7 +23,7 @@
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
-  .searchBox {
+  .searchForm {
     @include mixins.boxstyle;
     flex-wrap: wrap;
     width: 90vw;
@@ -40,7 +41,7 @@
       padding: 0.5rem;
       display: flex;
       flex-direction: column;
-      justify-content: end;
+      justify-content: flex-end;
 
       label {
         font-size: 0.8rem;
@@ -55,7 +56,7 @@
       }
     }
     .formButton {
-      @include mixins.inputstyle;
+      @include mixins.inputstyle();
       background-color: var(--color-purple);
       color: white;
       display: flex;
@@ -70,4 +71,15 @@
 .flexRow {
   display: flex;
   flex-direction: row;
+}
+
+.purpleHomeSection {
+  background-color: var(--color-purple);
+  margin-top: 6rem;
+  padding: 1rem;
+}
+
+.gridTwoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

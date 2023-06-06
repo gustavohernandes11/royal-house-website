@@ -1,0 +1,86 @@
+@use "../../styles/mixins.scss" as mixins;
+
+.immobileCard {
+  @include mixins.resetLink();
+  width: 100%;
+  height: 100%;
+  transition: box-shadow 0.2s linear;
+  border-radius: 0.5rem;
+  outline: 1px solid rgb(190, 190, 190);
+}
+.immobileCard:hover {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.295);
+  border: none;
+  cursor: auto;
+}
+
+.location {
+  font-size: 0.75rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.propertyCharacteristics {
+  display: inline-block;
+  .squareMetersUsableArea,
+  .dorms,
+  .vacancies,
+  .toilets {
+    display: inline-block;
+    padding-inline: 0.25rem;
+    b {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.cover {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.header {
+  position: relative;
+}
+.prices {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  .toSell,
+  .toRent {
+    border-radius: 0.5rem;
+    background-color: white;
+    padding: 0.2rem 0.5rem;
+    font-weight: bold;
+  }
+  .toSell {
+    color: var(--color-green);
+  }
+  .toRent {
+    color: var(--color-blue);
+  }
+}
+
+.body {
+  padding: 1rem;
+  height: auto;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.button {
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-purple);
+  text-transform: uppercase;
+  color: white;
+}
