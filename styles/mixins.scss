@@ -1,15 +1,22 @@
 @mixin boxstyle {
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   box-shadow: 5px 5px 5px rgba(8, 8, 8, 0.089);
   border: 1px solid rgb(197, 197, 197);
 }
 @mixin inputstyle {
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   border: 1px solid rgb(197, 197, 197);
   padding: 0.5rem;
 }
 
-@mixin resetLink {
+@mixin resetlink {
   text-decoration: none;
   color: unset;
+}
+
+@mixin flexCenter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

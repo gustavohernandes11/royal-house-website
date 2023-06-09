@@ -2,7 +2,6 @@
 
 .coverSection {
   position: relative;
-  width: 100vw;
   max-width: 100vw;
   min-height: 50vw;
 
@@ -11,75 +10,102 @@
   background-size: cover;
   background-repeat: no-repeat;
 
-  .shade {
-    background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
-    height: 3rem;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  .title {
+  &__title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
-  .searchForm {
-    @include mixins.boxstyle;
-    flex-wrap: wrap;
-    width: 90vw;
-
-    display: flex;
-    flex-direction: row;
-    padding: 1rem;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translate(50%, 50%);
-
-    .formColumn {
-      padding: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      label {
-        font-size: 0.8rem;
-        margin-bottom: 0.25rem;
-      }
-
-      .formInput {
-        @include mixins.inputstyle;
-      }
-      .priceInput {
-        width: 4rem;
-      }
-    }
-    .formButton {
-      @include mixins.inputstyle();
-      background-color: var(--color-purple);
-      color: white;
-      display: flex;
-      min-width: 6rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-  }
 }
+.searchForm {
+  @include mixins.boxstyle;
+  flex-wrap: wrap;
 
-.flexRow {
   display: flex;
   flex-direction: row;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%, 50%);
+
+  &__column {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  label {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+  }
+
+  &__input {
+    @include mixins.inputstyle;
+  }
+  &__spacingDots {
+    padding-inline: 0.5rem;
+  }
+  &__priceInput {
+    width: 4rem;
+    flex: 1;
+  }
+  &__button {
+    @include mixins.inputstyle();
+    background-color: var(--color-purple);
+    color: white;
+    display: flex;
+    min-width: 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    max-width: 5rem;
+    margin-left: auto;
+  }
 }
 
 .purpleHomeSection {
   background-color: var(--color-purple);
-  margin-top: 6rem;
-  padding: 1rem;
+  color: white;
+  margin: 0rem 0rem 4rem 0rem;
+  padding: 10rem 5rem 5rem 5rem;
+
+  &__gridTwoColumns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__gridChild {
+    @include mixins.flexCenter();
+    flex-direction: column;
+  }
+  &__numberOfOptions {
+    font-size: 4rem;
+  }
 }
 
-.gridTwoColumns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.moreOptions {
+  width: fit-content;
+  display: block;
+  margin: 2rem auto;
+
+  .moreOptions__link {
+    margin: auto;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 1.25rem;
+    color: black;
+
+    &:hover {
+      color: var(--color-purple);
+      cursor: pointer;
+    }
+  }
 }

@@ -46,15 +46,15 @@ export const ImmobileCard = ({
 }: ImmobileCardProps) => {
   return (
     <Link href={detailsPageUrl} className={styles.immobileCard}>
-      <header className={styles.header}>
+      <header className={styles.immobileCard__header}>
         <Image
           alt={cover.alt}
           src={exempleImage}
           height={200}
           width={300}
-          className={styles.cover}
+          className={styles.immobileCard__cover}
         />
-        <div className={styles.prices}>
+        <div className={styles.immobileCard__prices}>
           {purpose === "toRent" && (
             <span className={styles.toRent}>
               {BRL.format(price.toRent)}/month
@@ -65,31 +65,31 @@ export const ImmobileCard = ({
           )}
         </div>
       </header>
-      <body className={styles.body}>
-        <p className={styles.location}>{location}</p>
-        <h1 className={styles.title}>{title}</h1>
+      <main className={styles.immobileCard__main}>
+        <p className={styles.immobileCard__location}>{location}</p>
+        <h1 className={styles.immobileCard__title}>{title}</h1>
 
-        <footer className={styles.footer}>
-          <span className={styles.propertyCharacteristics}>
-            <p className={styles.dorms}>
+        <footer className={styles.immobileCard__footer}>
+          <span className={styles.immobileCard__propertyCharacteristics}>
+            <p className={styles.immobileCard__dorms}>
               <b>{propertyCharacteristics.dorms} </b>
               quartos
             </p>
-            <p className={styles.squareMetersUsableArea}>
+            <p className={styles.immobileCard__squareMetersUsableArea}>
               <b>{propertyCharacteristics.squareMetersUsableArea} </b> m²
             </p>
-            <p className={styles.toilets}>
+            <p className={styles.immobileCard__toilets}>
               <b>{propertyCharacteristics.toilets} </b>
               suítes
             </p>
-            <p className={styles.vacancies}>
+            <p className={styles.immobileCard__vacancies}>
               <b>{propertyCharacteristics.vacancies} </b>
               vagas
             </p>
           </span>
-          <button className={styles.button}>Conferir</button>
+          <button className={styles.immobileCard__button}>Conferir</button>
         </footer>
-      </body>
+      </main>
     </Link>
   );
 };
